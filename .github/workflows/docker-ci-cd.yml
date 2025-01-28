@@ -35,16 +35,13 @@ jobs:
       # Step 5: Build the Docker image
       - name: Build Docker Image
         run: docker-compose build
-      
+
       # Step 6: Verify Docker images are built
       - name: Verify Docker Images
         run: |
           docker images
-      
-      # Step 7: Tag and Push Docker Images
-      - name: Tag and Push Docker Images
-        run: |
-          # Ensure the image is tagged correctly based on the service name in docker-compose.yml
-          docker tag advanced-web-service:latest adityagautam1909/advanced-web-service:latest
-          docker push adityagautam1909/advanced-web-service:latest
 
+      # Step 7: Push Docker Images
+      - name: Push Docker Images
+        run: |
+          docker push adityagautam1909/advanced-web-service:latest
