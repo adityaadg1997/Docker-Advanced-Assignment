@@ -18,15 +18,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Log in to Docker Hub
+      # Step 2: Set up Docker Compose
+      - name: Set up Docker Compose
+        uses: docker/compose-action@v2
+
+      # Step 3: Log in to Docker Hub
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      # Step 3: Build the Docker image
+      # Step 4: Build the Docker image
       - name: Build Docker Image
         run: docker-compose build
 
-      # Step 4: Tag and Push Docker Images
+      # Step 5: Tag and Push Docker Images
       - name: Push Docker Images
         run: |
           docker tag advanced-web-service:latest adityagautam1909/advanced-web-service:latest
