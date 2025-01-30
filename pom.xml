@@ -69,5 +69,4 @@
 		</plugins>
 		<finalName>docker-assignment-advanced</finalName>
 	</build>
-
 </project>
